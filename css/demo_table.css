@@ -252,7 +252,7 @@ tr.odd {
 tr.even {
 	background-color: white;
 }
-
+tr.highlight_row {background-color: #AAAAAA;}
 
 
 

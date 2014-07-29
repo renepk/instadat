@@ -7,6 +7,7 @@ table { font-size: 12px; float: left; }
 tr.odd {background-color: #e8e8e8;}
 tr.even {background-color: white;}
 tr.odd td.sorting_1 {background-color: #D3D6FF;}
+tr.highlight_row{background-color: #AAAAAA;}
 label, input, button, select, textarea { line-height: 30px }
 input, textarea, select, .uneditable-input { height: 25px; line-height: 25px; }
 select { width: 75px }
