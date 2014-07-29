@@ -61,6 +61,29 @@ console.log(dataSource);
     });
 $('tr').click(function () {
   $(this).toggleClass('highlight_row');
+  loandata=['data1', 1,2,4,2,7,4,1,3,5,1,2,2,4]
+  			var chart = c3.generate({
+    data: {
+        columns: [
+            loandata
+        ],
+        type: 'bar'
+    }
+})
+});
+            (function() {
+		loandata=['data1', 13917,13872,13828,13784,13740,13695,13651,13606,13561,13516,13471,13425,13380]
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+			var chart = c3.generate({
+    data: {
+        columns: [
+            loandata
+        ],
+        type: 'bar'
+    }
 });
 	};
 
