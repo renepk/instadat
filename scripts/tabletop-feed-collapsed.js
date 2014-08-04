@@ -77,7 +77,7 @@ $('tr').click(function () {
   console.log(period);
   console.log(window.data[period][0]);
   var columnID = 2;
-  loandata=['data1',window.data[period][columnID],window.data[+period+1][columnID],window.data[+period+2][columnID],window.data[+period+3][columnID],window.data[+period+4][columnID],window.data[+period+5][columnID],window.data[+period+6][columnID],window.data[+period+7][columnID],window.data[+period+8][columnID],window.data[+period+9][columnID],window.data[+period+10][columnID],window.data[+period+11][columnID],window.data[+period+12][columnID]]
+  loandata=['Loan Status',window.data[period][columnID],window.data[+period+1][columnID],window.data[+period+2][columnID],window.data[+period+3][columnID],window.data[+period+4][columnID],window.data[+period+5][columnID],window.data[+period+6][columnID],window.data[+period+7][columnID],window.data[+period+8][columnID],window.data[+period+9][columnID],window.data[+period+10][columnID],window.data[+period+11][columnID],window.data[+period+12][columnID]]
 //generate chart of data
   			var chart = c3.generate({
 		data: {
