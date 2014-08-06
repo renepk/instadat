@@ -9,8 +9,8 @@ jqueryNoConflict(document).ready(function(){
   {
    var data = d3.csv.parseRows(unparsedData);
    window.data=data
-   console.log(unparsedData);
-   console.log(data);
+//   console.log(unparsedData);
+//   console.log(data);
    }
 )});
 
@@ -43,7 +43,7 @@ function createTableColumns(){
 		{'mDataProp': 'curdueamt', 'sTitle': 'curdueamt', 'sClass': 'center'},
 		{'mDataProp': 'irb', 'sTitle': 'irb', 'sClass': 'center'},
 		{'mDataProp': 'pastdueamtpif', 'sTitle': 'pastdueamtpif', 'sClass': 'center'},
-		{'mDataProp': 'studentfutureid', 'sTitle': 'studentfutureid', 'sClass': 'center'},
+		{'mDataProp': 'intratepif', 'sTitle': 'studentfutureid', 'sClass': 'center'},
 		{'mDataProp': 'period', 'sTitle': 'period', 'sClass': 'center'},
 	];
     return tableColumns;
@@ -71,41 +71,41 @@ console.log(dataSource);
     });
 //click to td to choose graphed variable
 $('td').click(function () {
-	columntodisplay = this.cellIndex;
+	columnToDisplay = this.cellIndex;
 	});
 //click function
 $('tr').click(function () {
 //remove previous highlight on click
-	if(window.savedstate == 'undefined'){
+	if(window.savedState == 'undefined'){
 		var dummy=1;
 	}
 	else{
-		$(window.savedstate).toggleClass('highlight_row');
+		$(window.savedState).toggleClass('highlight_row');
 	}
-	window.savedstate=this;
+	window.savedState=this;
   $(this).toggleClass('highlight_row');
   var period = $(this).find("td:last").html();
-  columnID = columntodisplay+1;
+  columnID = columnToDisplay+1;
   GraphedVariableDictionary=['Loan Id', 'Loan Status', 'Principle Balance', 'Month', 'Current mo prin pd', 'Current Due Amount', 'irb', 'pastdueamtpif','Student Future id', 'period']
-  loandata=[GraphedVariableDictionary[columnID-1],window.data[period][columnID],window.data[+period+1][columnID],window.data[+period+2][columnID],window.data[+period+3][columnID],window.data[+period+4][columnID],window.data[+period+5][columnID],window.data[+period+6][columnID],window.data[+period+7][columnID],window.data[+period+8][columnID],window.data[+period+9][columnID],window.data[+period+10][columnID],window.data[+period+11][columnID],window.data[+period+12][columnID]]
+  loanData=[GraphedVariableDictionary[columnID-1],window.data[period][columnID],window.data[+period+1][columnID],window.data[+period+2][columnID],window.data[+period+3][columnID],window.data[+period+4][columnID],window.data[+period+5][columnID],window.data[+period+6][columnID],window.data[+period+7][columnID],window.data[+period+8][columnID],window.data[+period+9][columnID],window.data[+period+10][columnID],window.data[+period+11][columnID],window.data[+period+12][columnID]]
 //generate chart of data
   			var chart = c3.generate({
 		data: {
-        columns: [loandata],
+        columns: [loanData],
         type: 'bar'
     }
 })
 });
 //generate first table before click
 (function() {
-		loandata=['data1', 13917,13872,13828,13784,13740,13695,13651,13606,13561,13516,13471,13425,13380]
+		loanData=['data1', 13917,13872,13828,13784,13740,13695,13651,13606,13561,13516,13471,13425,13380]
 	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 	var chart = c3.generate({
 			data: {
-			columns: [loandata],
+			columns: [loanData],
 			type: 'bar'
     }
 });
