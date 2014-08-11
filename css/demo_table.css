@@ -307,7 +307,9 @@ td.details {
 	background-color: #d1cfd0;
 	border: 2px solid #A19B9E;
 }
-
+td.highlight {
+	background-color: #E8C331;
+	}
 
 .example_alt_pagination div.dataTables_info {
 	width: 40%;

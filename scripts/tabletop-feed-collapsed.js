@@ -43,7 +43,7 @@ function createTableColumns(){
 		{'mDataProp': 'curdueamt', 'sTitle': 'curdueamt', 'sClass': 'center'},
 		{'mDataProp': 'irb', 'sTitle': 'irb', 'sClass': 'center'},
 		{'mDataProp': 'pastdueamtpif', 'sTitle': 'pastdueamtpif', 'sClass': 'center'},
-		{'mDataProp': 'intratepif', 'sTitle': 'studentfutureid', 'sClass': 'center'},
+		{'mDataProp': 'intratepif', 'sTitle': 'intratepif', 'sClass': 'center'},
 		{'mDataProp': 'period', 'sTitle': 'period', 'sClass': 'center'},
 	];
     return tableColumns;
@@ -72,7 +72,16 @@ console.log(dataSource);
 //click to td to choose graphed variable
 $('td').click(function () {
 	columnToDisplay = this.cellIndex;
-	});
+	
+		if(window.savedtd == 'undefined'){
+		var dummy=1;
+	}
+	else{
+		$(window.savedtd).toggleClass('highlight');
+	}
+	window.savedtd=this;
+  $(this).toggleClass('highlight');
+  });
 //click function
 $('tr').click(function () {
 //remove previous highlight on click
