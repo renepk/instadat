@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>Circles</title>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	</head>
+	<body>
+  <div id="viz"></div>
+  <body>
+	<script type="text/javascript">
+    var dataset = [],
+    i = 0;
+
+    for(i=0; i<10; i++){
+        dataset.push(Math.round(Math.random()*100));
+    }
+
+    var sampleSVG = d3.select("#viz")
+    .append("svg")
+    .attr("width", 800)
+    .attr("height", 600);    
+
+    sampleSVG.selectAll("circle")
+    .data(dataset)
+    .enter().append("circle")
+    .style("stroke", "gray")
+    .style("fill", "red")
+    .attr("r", 40)
+    .attr("cx", function(d, i){return 50 + (i*80)})
+    .attr("cy", 250);
+	
+</script>
+</html>
