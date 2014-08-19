@@ -110,7 +110,11 @@ $('tr').click(function () {
 });
 //generate first chart before click
 (function() {
-		loanData=['data1', 13917,13872,13828,13784,13740,13695,13651,13606,13561,13516,13471,13425,13380]
+	document.getElementById("myList").onchange = function() {
+		console.log(this.value);
+		return false
+		};
+	loanData=['data1', 13917,13872,13828,13784,13740,13695,13651,13606,13561,13516,13471,13425,13380]
 	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
