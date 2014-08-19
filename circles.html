@@ -6,29 +6,50 @@
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	</head>
 	<body>
+	<h1> Council of circles demonstration</h1>
   <div id="viz"></div>
+  <div id="vizzie"></div>
   <body>
 	<script type="text/javascript">
     var dataset = [],
     i = 0;
 
-    for(i=0; i<10; i++){
+    for(i=0; i<20; i++){
         dataset.push(Math.round(Math.random()*100));
+		linenumber=1
     }
-
+	    for(i=21; i<40; i++){
+        dataset.push(Math.round(Math.random()*100));
+		linenumber=2
+    }
+	
     var sampleSVG = d3.select("#viz")
     .append("svg")
-    .attr("width", 800)
-    .attr("height", 600);    
+    .attr("width", 1000)
+    .attr("height", 100);    
 
     sampleSVG.selectAll("circle")
     .data(dataset)
     .enter().append("circle")
     .style("stroke", "gray")
     .style("fill", "red")
-    .attr("r", 40)
-    .attr("cx", function(d, i){return 50 + (i*80)})
-    .attr("cy", 250);
+    .attr("r", 10)
+    .attr("cx", function(d, i){return 50 + (i%20*25)})
+    .attr("cy", function(d,i){if (i<20){return 25} else {return 50}});
+	
+	var sampleSVG2 = d3.select("#vizzie")
+    .append("svg")
+    .attr("width", 1000)
+    .attr("height", 100);
+	
+	sampleSVG2.selectAll("circle")
+    .data(dataset)
+    .enter().append("circle")
+    .style("stroke", "gray")
+    .style("fill", "blue")
+    .attr("r", 10)
+    .attr("cx", function(d, i){return 50 + (i%20*25)})
+    .attr("cy", function(d,i){if (i<20){return 25} else {return 50}});
 	
 </script>
 </html>
