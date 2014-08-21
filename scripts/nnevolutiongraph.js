@@ -34,7 +34,12 @@ jqueryNoConflict(document).ready(function(){
             'sLengthMenu': '_MENU_ records per page'
         }
     });
+	oTable.columnFilter();
 	var chart = c3.generate({
+	    size: {
+        height: 300,
+        width: 600
+    },
     data: {
         columns: [
             ['data1', 73, 92, 52],
@@ -50,6 +55,25 @@ jqueryNoConflict(document).ready(function(){
             lines: [{value:0}]
         }
     }
+});
+var linechart = c3.generate({
+    size: {
+        height: 300,
+        width: 600
+    },
+	bindto: "#linechart",
+    data: {
+        columns: [
+			['data1', 73, 92, 52],
+            ['confidenceintervalupper', 75,96,60],
+			['confidenceintervallower', 70,85,40],
+        ],
+        regions: {
+            'confidenceintervalupper': [{'start':0, 'end':3, 'style':'dashed'}], // currently 'dashed' style only
+            'confidenceintervallower': [{'start':0}]
+        }
+    }
+
 });
 
 setTimeout(function () {
