@@ -32,14 +32,19 @@
 <div id="chart"> </div>			
                 </div>
             </div>
-			<form align="right">
-<select id="myList">
+<p style="display: inline;">Column to search</p><form align="right" style="display: inline;">
+<select id="columnSearch">
   <option value="1">Loan Status</option>
-  <option value="2">Month</option>
   <option value="3">Principal Balance</option>  
   <option value="4">Current Due Amount</option>
 </select>
-<form>	
+</form>
+<p style="display: inline;">Remove Column</p><form align="right" style="display: inline;">
+<select id="removeColumn">
+  <option value="0">none</option>
+  <option value="2">Month</option>
+</select>
+</form>	
             <div class="row-fluid">
                 <div class="span12">
                     <div id="demo"></div>

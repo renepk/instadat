@@ -51,8 +51,7 @@ if (columnSearch==1){
     var tableColumns =   [
 		{'mDataProp': 'loanid', 'sTitle': 'loanid', 'sClass': 'center',"bSearchable": false},
 		{'mDataProp': 'loanstatus', 'sTitle': 'loanstatus', 'sClass': 'center',"bSearchable": false},
-		{'mDataProp': 'prinbal', 'sTitle': 'prinbal', 'sClass': 'center',"bSearchable": false},
-		{'mDataProp': 'month', 'sTitle': 'month', 'sClass': 'center'},
+		{'mDataProp': 'prinbal', 'sTitle': 'prinbal', 'sClass': 'center'},
 	    {'mDataProp': 'currmoprinpd', 'sTitle': 'currmoprinpd', 'sClass': 'center',"bSearchable": false},
 	    {'mDataProp': 'curdueamt', 'sTitle': 'curdueamt', 'sClass': 'center',"bSearchable": false},
 		{'mDataProp': 'irb', 'sTitle': 'irb', 'sClass': 'center',"bSearchable": false},
@@ -104,8 +103,23 @@ function writeTableWith(dataSource){
     jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 //dropdown list to choose searchable column
 columnSearch=1;
-	document.getElementById("myList").onchange = function() {
+	document.getElementById("columnSearch").onchange = function() {
 	    columnSearch=this.value;
+		    jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
+		    var oTable = jqueryNoConflict('#data-table-container').dataTable({
+		'sPaginationType': 'bootstrap',
+		'iDisplayLength': 100,
+        'aaData': dataSource,
+        'aoColumns': createTableColumns(columnSearch),
+        'oLanguage': {
+            'sLengthMenu': '_MENU_ records per page'
+        }
+    });
+		return false
+		};
+	document.getElementById("removeColumn").onchange = function() {
+	    columnSearch=this.value;
+		console.log(columnSearch);
 		    jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 		    var oTable = jqueryNoConflict('#data-table-container').dataTable({
 		'sPaginationType': 'bootstrap',
