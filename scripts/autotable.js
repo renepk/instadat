@@ -23,6 +23,14 @@ console.log(columns)
 		{'mDataProp': columns[3], 'sTitle': columns[3], 'sClass': 'center',"bSearchable": false},
 		{'mDataProp': columns[4], 'sTitle': columns[4], 'sClass': 'center',"bSearchable": false},
 		{'mDataProp': columns[5], 'sTitle': columns[5], 'sClass': 'center',"bSearchable": false},
+		{'mDataProp': columns[6], 'sTitle': columns[6], 'sClass': 'center',"bSearchable": false},
+		{'mDataProp': columns[7], 'sTitle': columns[7], 'sClass': 'center',"bSearchable": false},
+		{'mDataProp': columns[8], 'sTitle': columns[8], 'sClass': 'center',"bSearchable": false},
+		{'mDataProp': columns[9], 'sTitle': columns[9], 'sClass': 'center',"bSearchable": false},
+		{'mDataProp': columns[10], 'sTitle': columns[10], 'sClass': 'center',"bSearchable": false},
+		{'mDataProp': columns[11], 'sTitle': columns[11], 'sClass': 'center',"bSearchable": false},
+		{'mDataProp': columns[12], 'sTitle': columns[12], 'sClass': 'center',"bSearchable": false},
+		{'mDataProp': columns[13], 'sTitle': columns[13], 'sClass': 'center',"bSearchable": false},
 	];
 // create hard-coded javascript object with loan data
 dataSource = [
