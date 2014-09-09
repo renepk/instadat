@@ -29,8 +29,8 @@ is what happens with the More Info column header */
 if (columnSearch==1){
 var tableColumns = [
 {'mDataProp': 'loanid', 'sTitle': 'loanid', 'sClass': 'center',"bSearchable": false},
-{'mDataProp': 'loanstatus', 'sTitle': 'loanstatus', 'sClass': 'center'},
-{'mDataProp': 'prinbal', 'sTitle': 'prinbal', 'sClass': 'center',"bSearchable": false},
+{'mDataProp': 'loanstatus', 'sTitle': 'loanstatus', 'sClass': 'center',"bSearchable": false},
+{'mDataProp': 'prinbal', 'sTitle': 'prinbal', 'sClass': 'center'},
 {'mDataProp': 'month', 'sTitle': 'month', 'sClass': 'center',"bSearchable": false},
 {'mDataProp': 'currmoprinpd', 'sTitle': 'currmoprinpd', 'sClass': 'center',"bSearchable": false},
 {'mDataProp': 'curdueamt', 'sTitle': 'curdueamt', 'sClass': 'center',"bSearchable": false},
@@ -95,7 +95,7 @@ columnSearch=1;
 document.getElementById("columnSearch").onchange = function() {
 columnSearch=this.value;
 jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
-var oTable = jqueryNoConflict('#data-table-container').dataTable({
+var oTable = jqueryNoConflict('#data-table-container').DataTable({
 'sPaginationType': 'bootstrap',
 'iDisplayLength': 100,
 'aaData': dataSource,
@@ -110,7 +110,7 @@ document.getElementById("removeColumn").onchange = function() {
 columnSearch=this.value;
 console.log(columnSearch);
 jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
-var oTable = jqueryNoConflict('#data-table-container').dataTable({
+var oTable = jqueryNoConflict('#data-table-container').DataTable({
 'sPaginationType': 'bootstrap',
 'iDisplayLength': 100,
 'aaData': dataSource,
@@ -121,7 +121,8 @@ var oTable = jqueryNoConflict('#data-table-container').dataTable({
 });
 return false
 };
-var oTable = jqueryNoConflict('#data-table-container').dataTable({
+//build first table
+var oTable = jqueryNoConflict('#data-table-container').DataTable({
 'sPaginationType': 'bootstrap',
 'iDisplayLength': 100,
 'aaData': dataSource,
@@ -133,9 +134,19 @@ var oTable = jqueryNoConflict('#data-table-container').dataTable({
 //loans like these function
 $('input').click(function () {
 //read the value to find a similar loan
-$(window.savedState).toggleClass('highlight_row');
-//
-});
+var oTable = jqueryNoConflict('#data-table-container').DataTable({
+'sPaginationType': 'bootstrap',
+//'bRetrieve': true,
+'iDisplayLength': 100,
+'aaData': dataSource,
+'aoColumns': createTableColumns(columnSearch),
+'oLanguage': {
+'sLengthMenu': '_MENU_ records per page'
+
+}
+}).column(2).search( 10 ).draw();
+} );
+
 //click to td to choose graphed variable
 $('td').click(function () {
 columnToDisplay = this.cellIndex;

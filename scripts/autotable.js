@@ -262,14 +262,14 @@ dataSource = [
 //create table
     var oTable = jqueryNoConflict('#data-table-container').dataTable({
 		'sPaginationType': 'bootstrap',
+		'bRetrieve': true,
 		'iDisplayLength': 100,
         'aaData': dataSource,
         'aoColumns': tableColumns,
         'oLanguage': {
             'sLengthMenu': '_MENU_ records per page'
         }
-    });
-	oTable.columnFilter();
+    }).columnFilter();
 	var chart = c3.generate({
 	    size: {
         height: 300,
