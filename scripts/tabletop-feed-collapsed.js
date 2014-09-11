@@ -139,7 +139,7 @@ console.log('clicked');
 jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 var oTable = jqueryNoConflict('#data-table-container').DataTable({
 'sPaginationType': 'bootstrap',
-'iDisplayLength': 10,
+'iDisplayLength': 100,
 'aaData': dataSource,
 'aoColumns': createTableColumns(columnSearch),
 'oLanguage': {
