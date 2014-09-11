@@ -1,5 +1,6 @@
 var jqueryNoConflict = jQuery;
 // begin main function
+var loanslikethesevar;
 jqueryNoConflict(document).ready(function(){
 initializeTabletopObject('0An8W63YKWOsxdHlyTVAzQ1RPSGhxZDM5T3NqdU9RcHc');
 d3.text("datasortedbyperiod.csv", function(unparsedData)
@@ -134,17 +135,22 @@ var oTable = jqueryNoConflict('#data-table-container').DataTable({
 //loans like these function
 $('input').click(function () {
 //read the value to find a similar loan
+console.log('clicked');
+jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 var oTable = jqueryNoConflict('#data-table-container').DataTable({
-'sPaginationType': 'bootstrap',
-//'bRetrieve': true,
-'iDisplayLength': 100,
+"processing": true,
+'bRetrieve': true,
+'iDisplayLength': 10,
 'aaData': dataSource,
 'aoColumns': createTableColumns(columnSearch),
-'oLanguage': {
-'sLengthMenu': '_MENU_ records per page'
-
+});
+if(typeof window.savedtd == 'undefined'){
+alert('No row is currently selected.  Please select row');
 }
-}).column(2).search( 10 ).draw();
+else{
+oTable.fnFilter( loanslikethesevar, 1 );
+}
+
 } );
 
 //click to td to choose graphed variable
@@ -172,6 +178,9 @@ window.savedState=this;
 $(this).toggleClass('highlight_row');
 //set the beginning period to the period of this row
 var period = $(this).find("td:last").html();
+//set the variable for loans like these function
+loanslikethesevar = $(this).find("td:eq(1)").text();
+console.log(loanslikethesevar);
 //display the future 13 periods
 columnID = columnToDisplay+1;
 GraphedVariableDictionary=['Loan Id', 'Loan Status', 'Principle Balance', 'Month', 'Current mo prin pd', 'Current Due Amount', 'irb', 'pastdueamtpif','Student Future id', 'period']
