@@ -138,11 +138,13 @@ $('input').click(function () {
 console.log('clicked');
 jqueryNoConflict('#demo').html('<table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered table-striped" id="data-table-container"></table>');
 var oTable = jqueryNoConflict('#data-table-container').DataTable({
-"processing": true,
-'bRetrieve': true,
+'sPaginationType': 'bootstrap',
 'iDisplayLength': 10,
 'aaData': dataSource,
 'aoColumns': createTableColumns(columnSearch),
+'oLanguage': {
+'sLengthMenu': '_MENU_ records per page'
+}
 });
 if(typeof window.savedtd == 'undefined'){
 alert('No row is currently selected.  Please select row');
